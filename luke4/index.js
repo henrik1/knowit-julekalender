@@ -2,24 +2,18 @@ const jimp = require('jimp');
 
 const URL = 'https://s3-eu-west-1.amazonaws.com/knowit-julekalender-2018/input-pokemon-jakt.png';
 
-const BITS = 4;
+const SIGNIFICANT_BITS = 4;
 const BYTE = 8;
+const INSIGNIFICANT_BITS = BYTE-SIGNIFICANT_BITS;
 
-const intToBinary = (integer) => {
-  if( typeof(integer) !== 'number') return NaN;
-  return integer.toString(2);
-}
-
-const getZeros = (count) => {
-  const zeroArray = new Array(count);
-  zeroArray.fill('0');
-  return zeroArray.join('');
-}
+const pad = (start, count) => (
+  `${start}${new Array(count-start.length).fill('0').join('')}`
+)
 
 const process = (picture, fn) => {
   let maxValue = 0;
   for (let i = 0; i < picture.bitmap.data.length; i+=4) {
-    // We skip changing the alpha channel
+    // We can skip changing the alpha channel
     for (let j = 0; j < 4; j++) {
       maxValue = Math.max(maxValue, picture.bitmap.data[i + j]);
       picture.bitmap.data[i + j] = fn(picture.bitmap.data[i + j]);
@@ -29,8 +23,8 @@ const process = (picture, fn) => {
 
 const removeSignificantBits = (picture) => {
   process(picture, (value) => {
-    const binary = intToBinary(value);
-    const removed = `${getZeros(BYTE - BITS)}${binary.slice(BYTE - BITS)}`;
+    const binary = pad(value.toString(2), BYTE);
+    const removed = `${pad('', INSIGNIFICANT_BITS)}${binary.slice(INSIGNIFICANT_BITS)}`;
     const number = parseInt(removed, 2);
     return number;
   });
