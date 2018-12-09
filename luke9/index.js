@@ -4,8 +4,10 @@ const input = require('./input');
 const solve = (list, prevHash) => {
   for (let i = 0; i < list.length; i++) {
     if (md5(`${prevHash}${list[i].ch}`) === list[i].hash) {
-      return [list[i].ch].concat(
-        solve(list.slice(0, i).concat(list.slice(i+1)), list[i].hash)
+      const next = list[i];
+      list.splice(i, 1)
+      return [next.ch].concat(
+        solve(list, next.hash)
       )
     };
   }
