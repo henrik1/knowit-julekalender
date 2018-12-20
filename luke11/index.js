@@ -1,5 +1,5 @@
 const fs = require('fs');
-const path = fs.readFileSync('input-crisscross.txt', 'utf-8').trim();
+const path = fs.readFileSync('input.txt', 'utf-8').trim();
 
 const directions = (coords = []) => ({
   H: (len) => (coords = [coords[0] + len, coords[1]]),
