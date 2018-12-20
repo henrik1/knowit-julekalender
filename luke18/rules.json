@@ -1,0 +1,49 @@
+{
+  "RSP": { "draw": [0, 1, 2] },
+  "RPS": { "draw": [0, 1, 2] },
+  "SPR" : { "draw": [0, 1, 2] },
+  "SRP" : { "draw": [0, 1, 2] },
+  "PSR" : { "draw": [0, 1, 2] },
+  "PRS" : { "draw": [0, 1, 2] },
+
+  "RRR" : { "draw": [0, 1, 2] },
+  "SSS" : { "draw": [0, 1, 2] },
+  "PPP" : { "draw": [0, 1, 2] },
+
+  "PPR" : { "draw": [0, 1] },
+  "PRP" : { "draw": [0, 2] },
+  "RPP" : { "draw": [1, 2] },
+
+  "SSP" : { "draw": [0, 1] },
+  "SPS" : { "draw": [0, 2] },
+  "PSS" : { "draw": [1, 2] },
+
+  "RRS" : { "draw": [0, 1] },
+  "RSR" : { "draw": [0, 2] },
+  "SRR" : { "draw": [1, 2] },
+
+  "RSS" : { "winner": 0 },
+  "SRS" : { "winner": 1 },
+  "SSR" : { "winner": 2 },
+
+  "SPP" : { "winner": 0 },
+  "PSP" : { "winner": 1 },
+  "PPS" : { "winner": 2 },
+
+  "PRR" : { "winner": 0 },
+  "RPR" : { "winner": 1 },
+  "RRP" : { "winner": 2 },
+
+  "RR" : { "draw": [0,1] },
+  "SS" : { "draw": [0,1] },
+  "PP" : { "draw": [0,1] },
+
+  "RS" : { "winner": 0 },
+  "SR" : { "winner": 1 },
+
+  "SP" : { "winner": 0 },
+  "PS" : { "winner": 1 },
+
+  "PR" : { "winner": 0 },
+  "RP" : { "winner": 1 }
+}
